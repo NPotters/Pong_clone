@@ -3,7 +3,7 @@
 #include "Menu.h"
 
 
-void Game::Start()
+void Game::Start(void)
 {
 	if (_gameState != Uninitialized)
 		return;
@@ -14,7 +14,13 @@ void Game::Start()
 
 	window.create(dimension, title);
 	window.setFramerateLimit(60);
-
+	///Background///////
+	background.Load("./Files/background.png");
+	///Paddle Player//////
+	_player2.Load("./Files/PaddlePlayer2.png");
+	_player2.SetPosition(1772, 707);
+	_player1.Load("./Files/PaddlePlayer1.png");
+	_player1.SetPosition( 100, 100 );
 	////////playing state/////////////////////
 	_gameState = Game::StartScreen;
 
@@ -64,7 +70,10 @@ void Game::GameLoop(){
 				auto position = sf::Mouse::getPosition(window);
 				circle.setPosition(sf::Vector2f(position.x, position.y));
 				window.clear();
+				background.Draw(window);
 				window.draw(circle);
+				_player1.Draw(window);
+				_player2.Draw(window);
 				window.display();
 
 					if(event.type==sf::Event::Closed)
@@ -113,4 +122,7 @@ void Game::ShowMenu()
 	
 sf::RenderWindow Game::window;
 Game::GameState Game::_gameState = Uninitialized;
+PaddlePlayer Game::background;
+PaddlePlayer Game::_player1;
+PaddlePlayer Game::_player2;
  

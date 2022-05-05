@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="Paddles.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="396.67505"
+     inkscape:cy="560.61693"
+     inkscape:window-width="3840"
+     inkscape:window-height="2097"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1633">
+      <stop
+         style="stop-color:#ff003c;stop-opacity:0.71494257"
+         offset="0"
+         id="stop1629" />
+      <stop
+         style="stop-color:#ff6fff;stop-opacity:0.89655173"
+         offset="1"
+         id="stop1631" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1627">
+      <stop
+         style="stop-color:#ff003c;stop-opacity:0.71494257"
+         offset="0"
+         id="stop1623" />
+      <stop
+         style="stop-color:#ff6fff;stop-opacity:0.89655173"
+         offset="1"
+         id="stop1625" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1472">
+      <stop
+         style="stop-color:#0000ff;stop-opacity:1;"
+         offset="0"
+         id="stop1468" />
+      <stop
+         style="stop-color:#01d7ff;stop-opacity:1"
+         offset="1"
+         id="stop1470" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient852">
+      <stop
+         style="stop-color:#0000ff;stop-opacity:1;"
+         offset="0"
+         id="stop848" />
+      <stop
+         style="stop-color:#00e1ff;stop-opacity:0.89803922"
+         offset="1"
+         id="stop850" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient852"
+       id="linearGradient854"
+       x1="52.059071"
+       y1="88.453613"
+       x2="182.6832"
+       y2="88.453613"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-206.16494,27.8969)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1472"
+       id="linearGradient1466"
+       x1="51.378658"
+       y1="88.453613"
+       x2="182.6832"
+       y2="88.453613"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-206.16494,27.8969)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1633"
+       id="linearGradient1599"
+       gradientUnits="userSpaceOnUse"
+       x1="52.059071"
+       y1="88.453613"
+       x2="181.66258"
+       y2="88.793823"
+       gradientTransform="translate(-206.16495,-43.886592)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1627"
+       id="linearGradient1601"
+       gradientUnits="userSpaceOnUse"
+       x1="52.059071"
+       y1="88.453613"
+       x2="181.66258"
+       y2="88.793823"
+       gradientTransform="translate(-206.16495,-43.886592)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:url(#linearGradient854);fill-opacity:1;stroke:url(#linearGradient1466);stroke-width:3.38701;stroke-opacity:1"
+       id="rect846"
+       width="127.91752"
+       height="19.731958"
+       x="-153.09279"
+       y="106.48453"
+       inkscape:export-filename="C:\Users\nicky\source\repos\Pong_clone\Pong_clone\Files\PaddlePlayer1.png"
+       inkscape:export-xdpi="52.735912"
+       inkscape:export-ydpi="52.735912"
+       transform="rotate(-90)" />
+    <rect
+       style="fill:url(#linearGradient1599);fill-opacity:1;stroke:url(#linearGradient1601);stroke-width:3.38701;stroke-opacity:1"
+       id="rect846-0"
+       width="127.91752"
+       height="19.731958"
+       x="-153.09279"
+       y="34.701046"
+       inkscape:export-filename="C:\Users\nicky\source\repos\Pong_clone\Pong_clone\Files\PaddlePlayer2.png"
+       inkscape:export-xdpi="52.735912"
+       inkscape:export-ydpi="52.735912"
+       transform="rotate(-90)" />
+  </g>
+</svg>
