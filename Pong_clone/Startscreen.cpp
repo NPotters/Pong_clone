@@ -4,7 +4,7 @@
 void Startscreen::Show(sf::RenderWindow& renderWindow)
 {
     sf::Texture image;
-    if (image.loadFromFile("C:/Users/nicky/source/repos/Pong_clone/Pong_clone/Files/IntroSpacePong.png") != true)
+    if (image.loadFromFile("./Files/IntroSpacePong.png") != true)
     {
         return;
     }
