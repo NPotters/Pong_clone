@@ -4,7 +4,7 @@ Menu::MenuOptions Menu::Show(sf::RenderWindow& window)
 {
     //Load menu image
     sf::Texture image;
-    image.loadFromFile("C:/Users/nicky/source/repos/Pong_clone/Pong_clone/Files/Menu.png");
+    image.loadFromFile("./Files/Menu.png");
     sf::Sprite spritewindow(image);
     //sf::RectangleShape line(sf::Vector2f(1451, 280));
     //line.setPosition(241, 165);
