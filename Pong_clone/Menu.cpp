@@ -6,8 +6,8 @@ Menu::MenuOptions Menu::Show(sf::RenderWindow& window)
     sf::Texture image;
     image.loadFromFile("C:/Users/nicky/source/repos/Pong_clone/Pong_clone/Files/Menu.png");
     sf::Sprite spritewindow(image);
-    //sf::RectangleShape line(sf::Vector2f(1451, 280));
-    //line.setPosition(241, 165);
+    sf::RectangleShape line(sf::Vector2f(1451, 280));
+    line.setPosition(241, 165);
 
     //Setup menu items
     //Play menu button
@@ -32,7 +32,7 @@ Menu::MenuOptions Menu::Show(sf::RenderWindow& window)
 
     
     window.draw(spritewindow);
-    //window.draw(line);
+    window.draw(line);
     window.display();
     return GetMenuResponse(window);//event loop for Menu
 }
