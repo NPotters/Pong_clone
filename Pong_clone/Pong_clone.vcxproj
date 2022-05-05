@@ -147,14 +147,18 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="PaddlePlayer.cpp" />
     <ClCompile Include="Startscreen.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="VisibleGameObjects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="PaddlePlayer.h" />
     <ClInclude Include="Startscreen.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="VisibleGameObjects.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
