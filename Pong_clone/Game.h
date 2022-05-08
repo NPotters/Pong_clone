@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "PaddlePlayer.h"
+#include "ObjectManager.h"
 
 class Game
 {
@@ -22,7 +23,5 @@ private:
 
     static GameState _gameState;
     static sf::RenderWindow window;
-    static PaddlePlayer _player1;
-    static PaddlePlayer _player2;
-    static PaddlePlayer background;
+    static ObjectManager _ObjectManager;
 };

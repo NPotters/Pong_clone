@@ -14,13 +14,24 @@ void Game::Start(void)
 
 	window.create(dimension, title);
 	window.setFramerateLimit(60);
+
+	// Use PaddlePlayer is created dynamically and passed to _gameObjectManager to manage using the .Add() function
+	//
 	///Background///////
-	background.Load("./Files/background.png");
+	PaddlePlayer* background = new PaddlePlayer();
+	background->Load("./Files/background_Game.png");
 	///Paddle Player//////
-	_player2.Load("./Files/PaddlePlayer2.png");
-	_player2.SetPosition(1772, 707);
-	_player1.Load("./Files/PaddlePlayer1.png");
-	_player1.SetPosition( 100, 100 );
+	PaddlePlayer* player1 = new PaddlePlayer();
+	player1->Load("./Files/PaddlePlayer1.png");
+	player1->SetPosition( 100, 100 );
+	PaddlePlayer* player2 = new PaddlePlayer();
+	player2->Load("./Files/PaddlePlayer2.png");
+	player2->SetPosition(1772, 707);
+
+	/////////Object Manager///////////////////
+	_ObjectManager.Add("Background",background);
+	_ObjectManager.Add("Paddle1", player1);
+	_ObjectManager.Add("Paddle2", player2);
 	////////playing state/////////////////////
 	_gameState = Game::StartScreen;
 
@@ -62,7 +73,7 @@ void Game::GameLoop(){
 			case Game::Playing: 
 			{
 				sf::CircleShape circle;
-				int radius = 100;
+				float radius = 100.0;
 				circle.setRadius(radius);
 				circle.setFillColor(sf::Color(0, 255, 0));
 				circle.setPosition(640, 360);
@@ -70,10 +81,8 @@ void Game::GameLoop(){
 				auto position = sf::Mouse::getPosition(window);
 				circle.setPosition(sf::Vector2f(position.x, position.y));
 				window.clear();
-				background.Draw(window);
+				_ObjectManager.DrawAll(window);
 				window.draw(circle);
-				_player1.Draw(window);
-				_player2.Draw(window);
 				window.display();
 
 					if(event.type==sf::Event::Closed)
@@ -122,7 +131,5 @@ void Game::ShowMenu()
 	
 sf::RenderWindow Game::window;
 Game::GameState Game::_gameState = Uninitialized;
-PaddlePlayer Game::background;
-PaddlePlayer Game::_player1;
-PaddlePlayer Game::_player2;
+ObjectManager Game::_ObjectManager;
  
