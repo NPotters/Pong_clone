@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "StartScreen.h"
 
 void Startscreen::Show(sf::RenderWindow& renderWindow)

@@ -37,6 +37,18 @@
      id="defs2">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient1728">
+      <stop
+         style="stop-color:#00eaff;stop-opacity:1"
+         offset="0"
+         id="stop1724" />
+      <stop
+         style="stop-color:#ff00ff;stop-opacity:1"
+         offset="1"
+         id="stop1726" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient1633">
       <stop
          style="stop-color:#ff003c;stop-opacity:0.81839079"
@@ -123,6 +135,66 @@
        x2="181.66258"
        y2="88.793823"
        gradientTransform="translate(-206.16495,-43.886592)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1728"
+       id="linearGradient1720"
+       x1="38.791027"
+       y1="203.78351"
+       x2="55.446079"
+       y2="203.78351"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1355646,0,0,1.1071755,9.6020833,4.8655924)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1728"
+       id="linearGradient1746"
+       gradientUnits="userSpaceOnUse"
+       x1="38.791027"
+       y1="203.78351"
+       x2="55.446079"
+       y2="203.78351"
+       gradientTransform="matrix(1.1355646,0,0,1.1071755,9.6020833,4.8655924)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient852"
+       id="linearGradient1876"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1132456,0,0,1.0854144,43.31352,9.4702393)"
+       x1="38.791027"
+       y1="203.78351"
+       x2="55.446079"
+       y2="203.78351" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient852"
+       id="linearGradient1878"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1132456,0,0,1.0854144,43.31352,9.4702393)"
+       x1="38.791027"
+       y1="203.78351"
+       x2="55.446079"
+       y2="203.78351" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1627"
+       id="linearGradient1929"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1132456,0,0,1.0854144,72.91146,8.4496243)"
+       x1="38.791027"
+       y1="203.78351"
+       x2="55.446079"
+       y2="203.78351" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1627"
+       id="linearGradient1931"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1132456,0,0,1.0854144,72.91146,8.4496243)"
+       x1="38.791027"
+       y1="203.78351"
+       x2="55.446079"
+       y2="203.78351" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -150,5 +222,35 @@
        inkscape:export-xdpi="52.735912"
        inkscape:export-ydpi="52.735912"
        transform="rotate(-90)" />
+    <ellipse
+       style="fill:url(#linearGradient1720);fill-opacity:1;stroke:url(#linearGradient1746);stroke-width:2.24256;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.501149"
+       id="path861"
+       ry="7.5333591"
+       rx="7.5333581"
+       cy="230.48969"
+       cx="63.108242"
+       inkscape:export-filename="C:\Users\nicky\source\repos\Pong_clone\Pong_clone\Files\Ball_Start.png"
+       inkscape:export-xdpi="52.827206"
+       inkscape:export-ydpi="52.827206" />
+    <ellipse
+       style="fill:url(#linearGradient1876);fill-opacity:1;stroke:url(#linearGradient1878);stroke-width:2.19849;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.501149"
+       id="path861-5"
+       ry="7.3852944"
+       rx="7.3852935"
+       cy="230.65979"
+       cx="95.768036"
+       inkscape:export-filename="C:\Users\nicky\source\repos\Pong_clone\Pong_clone\Files\Ball_Blue.png"
+       inkscape:export-xdpi="53.886223"
+       inkscape:export-ydpi="53.886223" />
+    <ellipse
+       style="fill:url(#linearGradient1929);fill-opacity:1;stroke:url(#linearGradient1931);stroke-width:2.19849;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.501149"
+       id="path861-5-3"
+       ry="7.3852944"
+       rx="7.3852935"
+       cy="229.63918"
+       cx="125.36597"
+       inkscape:export-filename="C:\Users\nicky\source\repos\Pong_clone\Pong_clone\Files\Ball_Pink.png"
+       inkscape:export-xdpi="53.88625"
+       inkscape:export-ydpi="53.88625" />
   </g>
 </svg>

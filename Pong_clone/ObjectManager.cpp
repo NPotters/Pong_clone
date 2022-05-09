@@ -1,4 +1,5 @@
 #include "ObjectManager.h"
+#include "Game.h"
 
 ObjectManager::ObjectManager()
 {
@@ -58,6 +59,20 @@ void ObjectManager::DrawAll(sf::RenderWindow& window)
 	while (it != _gameObjects.end())
 	{
 		it->second->Draw(window);
+		it++;
+	}
+}
+
+void ObjectManager::UpdateAll()
+{	// loop over all the elements in the map container
+	// while the end of the container is not reached, call the VisibleGameObject Update method
+	// Updates all the availble items every frame and returns the frametime.
+	std::map<std::string, VisibleGameObject*>::const_iterator it = _gameObjects.begin();
+	float DeltaT = clock.restart().asSeconds();
+
+	while (it != _gameObjects.end())
+	{
+		it->second->Update(DeltaT);
 		it++;
 	}
 }

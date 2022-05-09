@@ -9,27 +9,30 @@ void Game::Start(void)
 		return;
 
 
-	auto dimension = sf::VideoMode(1920, 1080);
+	auto dimension = sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT,32);
 	auto title = "Space Pong";
 
-	window.create(dimension, title);
-	window.setFramerateLimit(60);
+	_window.create(dimension, title);
+	_window.setFramerateLimit(60);
 
-	// Use PaddlePlayer is created dynamically and passed to _gameObjectManager to manage using the .Add() function
-	//
+
 	///Background///////
-	PaddlePlayer* background = new PaddlePlayer();
-	background->Load("./Files/background_Game.png");
+	GameBackground* background = new GameBackground();
+
+	//Ball /////
+	Ball* ball = new Ball();
+	ball->SetPosition((SCREEN_WIDTH/2), (SCREEN_HEIGHT / 2));
+
 	///Paddle Player//////
 	PaddlePlayer* player1 = new PaddlePlayer();
-	player1->Load("./Files/PaddlePlayer1.png");
-	player1->SetPosition( 100, 100 );
-	PaddlePlayer* player2 = new PaddlePlayer();
-	player2->Load("./Files/PaddlePlayer2.png");
-	player2->SetPosition(1772, 707);
+	player1->SetPosition( OFFSET_Paddle, SCREEN_HEIGHT/2);
+	
+	PaddlePlayer2* player2 = new PaddlePlayer2();
+	player2->SetPosition((SCREEN_WIDTH - OFFSET_Paddle), SCREEN_HEIGHT / 2);
 
 	/////////Object Manager///////////////////
 	_ObjectManager.Add("Background",background);
+	_ObjectManager.Add("Ball", ball);
 	_ObjectManager.Add("Paddle1", player1);
 	_ObjectManager.Add("Paddle2", player2);
 	////////playing state/////////////////////
@@ -40,7 +43,7 @@ void Game::Start(void)
 		GameLoop();
 
 	}
-	window.close();
+	_window.close();
 }
 
 
@@ -53,11 +56,25 @@ bool Game::IsExiting(){
 			return false;
 
 	}
+/*///// input function/////
+const sf::Event& Game::GetInput()
+{
+	sf::Event currentEvent;
+	window.pollEvent(currentEvent);
+	return currentEvent;
+}*/
+
+sf::RenderWindow& Game::GetWindow()
+{
+	return _window;
+}
+
+
 /////////Define Gameloop///////////////
 void Game::GameLoop(){
 	sf::Event event;
 
-	while (window.pollEvent(event)) {
+	while (_window.pollEvent(event)) {
 
 		switch (_gameState) {
 			case Game::StartScreen:
@@ -72,20 +89,22 @@ void Game::GameLoop(){
 			}
 			case Game::Playing: 
 			{
-				sf::CircleShape circle;
+				/*sf::CircleShape circle;
 				float radius = 100.0;
 				circle.setRadius(radius);
 				circle.setFillColor(sf::Color(0, 255, 0));
 				circle.setPosition(640, 360);
 				circle.setOrigin(radius, radius);
-				auto position = sf::Mouse::getPosition(window);
+				auto position = sf::Mouse::getPosition(_window);
 				circle.setPosition(sf::Vector2f(position.x, position.y));
-				window.clear();
-				_ObjectManager.DrawAll(window);
-				window.draw(circle);
-				window.display();
+				*/
+				_window.clear();
+				_ObjectManager.UpdateAll();
+				_ObjectManager.DrawAll(_window);
+				//_window.draw(circle);
+				_window.display();
 
-					if(event.type==sf::Event::Closed)
+					if(event.type == sf::Event::Closed)
 					{
 						_gameState = Game::Exiting;
 					}
@@ -106,13 +125,13 @@ void Game::GameLoop(){
 void Game::ShowStartScreen()
 {
 	Startscreen startscreen; // create obj of class
-	startscreen.Show(window);
+	startscreen.Show(_window);
 	_gameState = Game::ShowingMenu;
 }
 void Game::ShowMenu()
 {
 	Menu Menuscreen; // create obj of class
-	Menu::MenuOptions option = Menuscreen.Show(window);
+	Menu::MenuOptions option = Menuscreen.Show(_window);
 	switch (option)
 	{
 	case Menu::Exit:
@@ -129,7 +148,7 @@ void Game::ShowMenu()
 
 
 	
-sf::RenderWindow Game::window;
+sf::RenderWindow Game::_window;
 Game::GameState Game::_gameState = Uninitialized;
 ObjectManager Game::_ObjectManager;
  

@@ -13,6 +13,7 @@ public:
 	VisibleGameObject* Get(std::string name) const;
 
 	void DrawAll(sf::RenderWindow& window);
+	void UpdateAll();
 
 private:
 	// Use map to create a collection of key(std::string) and value(VisibleGameObject) pairs,
@@ -20,6 +21,7 @@ private:
 	// Meaning each item in the map consits of an identifier and the data.
 	// Here the identifier is the std::string and the data is the VisibleGameObject pointer.
 	std::map<std::string, VisibleGameObject*> _gameObjects; 
+	sf::Clock clock;
 
 	//The ObjectDeallocator deletes the VisibleGameObject pointer.
 	//When the ObjectManager is destroyed or out of scope, it deletes all the memory of the itemns it contains.
