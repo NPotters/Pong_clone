@@ -1,5 +1,6 @@
 #pragma once
 #include "VisibleGameObjects.h"
+#include "ObjectManager.h"
 
 class ObjectManager
 {
@@ -22,6 +23,8 @@ private:
 	// Here the identifier is the std::string and the data is the VisibleGameObject pointer.
 	std::map<std::string, VisibleGameObject*> _gameObjects; 
 	sf::Clock clock;
+	//const sf::Time timePerFrame = sf::seconds(1.0f / 60.0f);
+	//sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
 	//The ObjectDeallocator deletes the VisibleGameObject pointer.
 	//When the ObjectManager is destroyed or out of scope, it deletes all the memory of the itemns it contains.

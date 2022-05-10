@@ -16,6 +16,6 @@ public:
 
 private:
 	// Determine (max)speed and direction of paddles
-	float _velocity = 0.0f; // -- is up ++ is down
-	float _maxVelocity = 120.0f;
+	float _velocity; // -- is up ++ is down
+	float _maxVelocity;
 };

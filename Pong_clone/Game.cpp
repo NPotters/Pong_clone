@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Startscreen.h"
 #include "Menu.h"
+#include "PlayMenu.h"
 
 
 void Game::Start(void)
@@ -27,14 +28,12 @@ void Game::Start(void)
 	PaddlePlayer* player1 = new PaddlePlayer();
 	player1->SetPosition( OFFSET_Paddle, SCREEN_HEIGHT/2);
 	
-	PaddlePlayer2* player2 = new PaddlePlayer2();
-	player2->SetPosition((SCREEN_WIDTH - OFFSET_Paddle), SCREEN_HEIGHT / 2);
-
+	
 	/////////Object Manager///////////////////
 	_ObjectManager.Add("Background",background);
 	_ObjectManager.Add("Ball", ball);
 	_ObjectManager.Add("Paddle1", player1);
-	_ObjectManager.Add("Paddle2", player2);
+	
 	////////playing state/////////////////////
 	_gameState = Game::StartScreen;
 
@@ -87,6 +86,11 @@ void Game::GameLoop(){
 				ShowMenu();
 				break;
 			}
+			case Game::GameMode:
+			{
+				ShowPlayMenu();
+				break;
+			}
 			case Game::Playing: 
 			{
 				/*sf::CircleShape circle;
@@ -99,6 +103,7 @@ void Game::GameLoop(){
 				circle.setPosition(sf::Vector2f(position.x, position.y));
 				*/
 				_window.clear();
+				_ObjectManager.Remove("Paddle2");
 				_ObjectManager.UpdateAll();
 				_ObjectManager.DrawAll(_window);
 				//_window.draw(circle);
@@ -115,6 +120,30 @@ void Game::GameLoop(){
 							ShowMenu();
 						}
 					}
+				break;
+			}
+			case Game::Playing2:
+			{	
+				PaddlePlayer2* player2 = new PaddlePlayer2();
+				player2->SetPosition((SCREEN_WIDTH - OFFSET_Paddle), SCREEN_HEIGHT / 2);
+
+				_window.clear();
+				_ObjectManager.Add("Paddle2", player2);
+				_ObjectManager.UpdateAll();
+				_ObjectManager.DrawAll(_window);
+				_window.display();
+
+				if (event.type == sf::Event::Closed)
+				{
+					_gameState = Game::Exiting;
+				}
+				if (event.type == sf::Event::KeyPressed)
+				{
+					if (event.key.code == sf::Keyboard::Escape)
+					{
+						ShowMenu();
+					}
+				}
 				break;
 			}
 
@@ -138,10 +167,33 @@ void Game::ShowMenu()
 		_gameState = Game::Exiting;
 		break;
 	case Menu::Play:
-		_gameState = Game::Playing;
+		_gameState = Game::GameMode;
 		break;
 	case Menu::Nothing:
 		ShowMenu();
+		break;
+	}
+}
+void Game::ShowPlayMenu()
+{
+	PlayMenu PlayMenuscreen; // create obj of class
+	PlayMenu::PlayMenuOptions Playoption = PlayMenuscreen.Show(_window);
+	switch (Playoption)
+	{
+	case PlayMenu::Exit:
+		_gameState = Game::Exiting;
+		break;
+	case PlayMenu::GoBack:
+		_gameState = Game::ShowingMenu;
+		break;
+	case PlayMenu::Play2:
+		_gameState = Game::Playing2;
+		break;
+	case PlayMenu::Play1:
+		_gameState = Game::Playing;
+		break;
+	case PlayMenu::Nothing:
+		ShowPlayMenu();
 		break;
 	}
 }

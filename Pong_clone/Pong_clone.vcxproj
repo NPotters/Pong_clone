@@ -152,6 +152,7 @@
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="PaddlePlayer.cpp" />
     <ClCompile Include="PaddlePlayer2.cpp" />
+    <ClCompile Include="PlayMenu.cpp" />
     <ClCompile Include="Startscreen.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="VisibleGameObjects.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="PaddlePlayer.h" />
     <ClInclude Include="PaddlePlayer2.h" />
+    <ClInclude Include="PlayMenu.h" />
     <ClInclude Include="Startscreen.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="VisibleGameObjects.h" />

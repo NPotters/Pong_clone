@@ -25,10 +25,11 @@ private:
 
     static void ShowStartScreen();
     static void ShowMenu();
+    static void ShowPlayMenu();
     
     enum GameState {
         Uninitialized, StartScreen, Paused,
-        ShowingMenu, Playing, Exiting
+        ShowingMenu, GameMode, Playing, Playing2, Exiting
     };
 
     static GameState _gameState;
