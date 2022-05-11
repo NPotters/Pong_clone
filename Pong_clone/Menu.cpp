@@ -57,7 +57,7 @@ Menu::MenuOptions Menu::Handleclick(int x, int y)
 Menu::MenuOptions Menu::GetMenuResponse(sf::RenderWindow& window)
 {
     sf::Event MenuEvent;
-    while (1 != 2)//to freeze the menu when pressed esc.until mouseclick happened
+    while (true)//to freeze the menu when pressed esc.until mouseclick happened
     {
         while (window.pollEvent(MenuEvent))
         {

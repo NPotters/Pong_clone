@@ -27,6 +27,7 @@ void Ball::Update(float elapsedTime)
 	
 	float Displacement = _velocity * elapsedTime;
 
+
 	float DisplacementX = LinearVelocityX(_angle) * Displacement;
 	float DisplacementY = LinearVelocityY(_angle) * Displacement;
 
@@ -42,9 +43,6 @@ void Ball::Update(float elapsedTime)
 		// Bounce Direction
 		DisplacementY = -DisplacementY;
 	}
-	////Interaction PlayerPaddle
-
-
 
 	////////Bounce wall x
 	if (GetPosition().x + DisplacementX >=  Game::SCREEN_WIDTH - Game::BORDER_OFFSET - (GetWidth() / 2))
@@ -61,6 +59,87 @@ void Ball::Update(float elapsedTime)
 		_velocity = 230.0f;
 		_elapsedTimeSinceStart = 0.0f;
 		
+	}
+
+	////Interaction PlayerPaddle1
+	// use dynamic cast to return a pointer to our game PlayerPaddle object
+	//We call Get() on our GameObjectManager looking for a VisibleGameObject named “Paddle1”. 
+	//If dynamic_cast<> not able to cast, it will return NULL
+	PaddlePlayer* player1 = dynamic_cast<PaddlePlayer*>(Game::GetGameObjectManager().Get("Paddle1"));
+	if (player1 != NULL)
+	{
+		sf::Rect<float> p1Bound = player1->GetBoundingRect();
+		//check intersection of two rectangles
+		if (p1Bound.intersects(GetBoundingRect()))
+		{
+			_angle = 180.0f - (_angle - 180.0f);
+			if (_angle > 360.0f) _angle -= 360.0f;
+
+			DisplacementX = -DisplacementX;
+
+			///Make sure ball is not inside paddle
+			if (GetBoundingRect().left < (player1->GetBoundingRect().left + player1->GetBoundingRect().width))
+			{
+				SetPosition(player1->GetBoundingRect().left + player1->GetBoundingRect().width + (GetWidth() / 2) + 1.0f, GetPosition().y);
+			}
+			//Addvelocity when hit by paddle
+			float VelocityPaddle1 = player1->GetVelocity();
+			if (VelocityPaddle1 < 0)
+			{
+				//moving up
+				_angle -= 10.0f; // add angle due to movement
+				if (_angle < 0) _angle = 360.0f - _angle;
+			}
+			else if (VelocityPaddle1 > 0)
+			{
+				_angle += 10.0f;
+				if (_angle > 360.0f) _angle -= 360.0f;
+			}
+			//add Velocity inficted by paddle
+			_velocity += 50.0f;
+		}
+		
+	}
+
+
+	////Interaction PlayerPaddle2
+	// use dynamic cast to return a pointer to our game PlayerPaddle object
+	//We call Get() on our GameObjectManager looking for a VisibleGameObject named “Paddle1”. 
+	//If dynamic_cast<> not able to cast, it will return NULL
+	PaddlePlayer2* player2 = dynamic_cast<PaddlePlayer2*>(Game::GetGameObjectManager().Get("Paddle2"));
+	if (player2 != NULL)
+	{
+		sf::Rect<float> p2Bound = player2->GetBoundingRect();
+		//check intersection of two rectangles
+		if (p2Bound.intersects(GetBoundingRect()))
+		{
+			_angle = 180.0f - (_angle - 180.0f);
+			if (_angle > 360.0f) _angle -= 360.0f;
+
+			DisplacementX = -DisplacementX;
+
+			///Make sure ball is not inside paddle
+			if ((GetBoundingRect().left + GetBoundingRect().width) < (player2->GetBoundingRect().left))
+			{
+				SetPosition(player2->GetBoundingRect().left - (GetWidth() / 2) - 1.0f, GetPosition().y);
+			}
+			//Add angle when paddle hits ball
+			float VelocityPaddle2 = player2->GetVelocity();
+			if (VelocityPaddle2 > 0)
+			{
+				//moving up
+				_angle -= 10.0f; // add angle due to movement
+				if (_angle < 0) _angle = 360.0f - _angle;
+			}
+			else if (VelocityPaddle2 < 0)
+			{
+				_angle += 10.0f;
+				if (_angle > 360.0f) _angle -= 360.0f;
+			}
+			//add Velocity inficted by paddle
+			_velocity += 50.0f;
+		}
+
 	}
 	
 	GetSprite().move(DisplacementX, DisplacementY);

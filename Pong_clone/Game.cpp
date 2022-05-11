@@ -51,6 +51,8 @@ void Game::Start(void)
 		{
 			timeSinceLastUpdate -= TimePerFrame;
 			float  TimePerFrame_sec = TimePerFrame.asSeconds();
+			//float fps = 1.f / TimePerFrame_sec;
+			//std::cout << fps<< std::endl;
 			GameLoop();
 			GameUpdate(TimePerFrame_sec);
 		}
@@ -119,6 +121,12 @@ const sf::Event& Game::GetInput()
 	window.pollEvent(currentEvent);
 	return currentEvent;
 }*/
+
+const ObjectManager& Game::GetGameObjectManager()
+{
+	return Game::_ObjectManager;
+}
+
 
 sf::RenderWindow& Game::GetWindow()
 {

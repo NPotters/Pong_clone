@@ -11,6 +11,7 @@ class Game
 
 public:
     static void Start();
+    const static ObjectManager& GetGameObjectManager();
     //const static sf::Event& GetInput();
     static sf::RenderWindow& GetWindow();
     const static int SCREEN_WIDTH = 1920;

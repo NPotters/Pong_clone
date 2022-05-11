@@ -2,7 +2,7 @@
 #include "Game.h"
 //default member initializer velocity = 0 and maxVelocity = 600.0f
 // use f after value to tell compiler it is a float not a double.
-PaddlePlayer2::PaddlePlayer2() : _velocity(0), _maxVelocity(120.0f)
+PaddlePlayer2::PaddlePlayer2() : _velocity(0), _maxVelocity(240.0f)
 {
 	Load("./Files/PaddlePlayer2.png");
 	//assert checks if its argument compares equal to zero.
@@ -40,7 +40,7 @@ void PaddlePlayer2::Update(float elapsedTime)
 
 	}
 	//create a "break" for our speeding paddle
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		_velocity = 0.0f;
 
