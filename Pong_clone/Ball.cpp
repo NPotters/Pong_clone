@@ -104,7 +104,7 @@ void Ball::Update(float elapsedTime)
 
 	////Interaction PlayerPaddle2
 	// use dynamic cast to return a pointer to our game PlayerPaddle object
-	//We call Get() on our GameObjectManager looking for a VisibleGameObject named “Paddle1”. 
+	//We call Get() on our GameObjectManager looking for a VisibleGameObject named “Paddle2”. 
 	//If dynamic_cast<> not able to cast, it will return NULL
 	PaddlePlayer2* player2 = dynamic_cast<PaddlePlayer2*>(Game::GetGameObjectManager().Get("Paddle2"));
 	if (player2 != NULL)
