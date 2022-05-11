@@ -1,4 +1,6 @@
 #pragma once
+#include "stdafx.h"
+#include "Game.h"
 #include "VisibleGameObjects.h"
 //subclass of the public VisibleGameObject
 class Ball :
@@ -7,4 +9,15 @@ class Ball :
 public:
 	Ball();
 	virtual ~Ball();
+	//override Update of VisibleGameObject
+	void Update(float elapsedTime);
+
+private:
+	float _velocity;
+	float _angle;
+	float _elapsedTimeSinceStart;
+	const float pi = 3.14159265358979323846f;
+
+	float LinearVelocityX(float angle);
+	float LinearVelocityY(float angle);
 };

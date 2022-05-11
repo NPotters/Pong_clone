@@ -10,3 +10,4 @@
 #include <cassert>
 #include <map>
 #include <list>
+#include <cmath>

@@ -14,7 +14,7 @@ public:
 	VisibleGameObject* Get(std::string name) const;
 
 	void DrawAll(sf::RenderWindow& window);
-	void UpdateAll();
+	void UpdateAll(float time);
 
 private:
 	// Use map to create a collection of key(std::string) and value(VisibleGameObject) pairs,
@@ -22,7 +22,7 @@ private:
 	// Meaning each item in the map consits of an identifier and the data.
 	// Here the identifier is the std::string and the data is the VisibleGameObject pointer.
 	std::map<std::string, VisibleGameObject*> _gameObjects; 
-	sf::Clock clock;
+	//sf::Clock clock;
 	//const sf::Time timePerFrame = sf::seconds(1.0f / 60.0f);
 	//sf::Time timeSinceLastUpdate = sf::Time::Zero;
 

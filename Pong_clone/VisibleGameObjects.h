@@ -11,6 +11,10 @@ public:
 	virtual void Draw(sf::RenderWindow& window);
 	virtual void Update(float elapsedTime);
 
+	virtual float GetWidth() const;
+	virtual float GetHeight() const;
+	virtual sf::Rect<float> GetBoundingRect() const;
+
 	virtual void SetPosition(float x,float y);
 	virtual sf::Vector2f GetPosition() const;
 	virtual bool IsLoaded() const;

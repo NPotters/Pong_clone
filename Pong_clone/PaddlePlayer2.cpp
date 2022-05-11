@@ -32,29 +32,29 @@ void PaddlePlayer2::Update(float elapsedTime)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		_velocity += 3.0f;//pixels per second
-		GetSprite().move(0, _velocity * elapsedTime);
+
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		_velocity -= 3.0f;
-		GetSprite().move(0, _velocity * elapsedTime);
+
 	}
 	//create a "break" for our speeding paddle
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		_velocity = 0.0f;
-		GetSprite().move(0, _velocity * elapsedTime);
+
 	}
 
 	if (_velocity > _maxVelocity)
 	{
 		_velocity = _maxVelocity;
-		GetSprite().move(0, _velocity * elapsedTime);
+
 	}
 	if (_velocity < -_maxVelocity)
 	{
 		_velocity = -_maxVelocity;
-		GetSprite().move(0, _velocity * elapsedTime);
+
 	}
 	//Set Outer bounds
 	sf::Vector2f pos = this->GetPosition();
@@ -62,10 +62,10 @@ void PaddlePlayer2::Update(float elapsedTime)
 		|| pos.y >(Game::SCREEN_HEIGHT - Game::BORDER_OFFSET - (GetSprite().getLocalBounds().height / 2)))
 	{
 		_velocity = -_velocity; // Bounce by current velocity in opposite direction
-		GetSprite().move(0, _velocity * elapsedTime);
+		
 	}
 	// add funtion, so the movement is not framerate dependent.
 	// velocity= pixels/second and elapsedTime(seconds/updates) is inversed framerate, 
 	//thus when multiplying by the framerate one gets the velocity.
-	
+	GetSprite().move(0, _velocity * elapsedTime);
 }

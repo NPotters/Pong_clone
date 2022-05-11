@@ -65,3 +65,17 @@ bool VisibleGameObject::IsLoaded() const
 {
 	return _isLoaded;
 }
+
+float VisibleGameObject::GetHeight() const
+{
+	return _sprite.getLocalBounds().height;
+}
+float VisibleGameObject::GetWidth() const
+{
+	return _sprite.getLocalBounds().width;
+}
+//this function returns the bounds of the sprite in the global 2D world's coordinate system.
+sf::Rect<float> VisibleGameObject::GetBoundingRect() const
+{
+	return _sprite.getGlobalBounds();
+}

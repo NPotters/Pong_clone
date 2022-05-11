@@ -3,7 +3,7 @@
 #include "Menu.h"
 #include "PlayMenu.h"
 
-
+const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 void Game::Start(void)
 {
 	if (_gameState != Uninitialized)
@@ -17,6 +17,7 @@ void Game::Start(void)
 	_window.setFramerateLimit(60);
 
 
+	
 	///Background///////
 	GameBackground* background = new GameBackground();
 
@@ -34,17 +35,73 @@ void Game::Start(void)
 	_ObjectManager.Add("Ball", ball);
 	_ObjectManager.Add("Paddle1", player1);
 	
+	
 	////////playing state/////////////////////
 	_gameState = Game::StartScreen;
+	sf::Clock clock;
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	
 
 	while (!IsExiting()){
 
-		GameLoop();
-
+		timeSinceLastUpdate += clock.restart();
+		//float timeSinceLastUpdate_sec = timeSinceLastUpdate.asSeconds();
+		
+		while (timeSinceLastUpdate > TimePerFrame)
+		{
+			timeSinceLastUpdate -= TimePerFrame;
+			float  TimePerFrame_sec = TimePerFrame.asSeconds();
+			GameLoop();
+			GameUpdate(TimePerFrame_sec);
+		}
+		render();
+		
 	}
 	_window.close();
 }
 
+void Game::render()
+{
+	switch (_gameState) {
+		case Game::Playing:
+		{
+
+			_window.clear();
+			_ObjectManager.Remove("Paddle2");
+			_ObjectManager.DrawAll(_window);
+
+			_window.display();
+			break;
+		}
+		case Game::Playing2:
+		{
+			PaddlePlayer2* player2 = new PaddlePlayer2();
+			player2->SetPosition((SCREEN_WIDTH - OFFSET_Paddle), SCREEN_HEIGHT / 2);
+			_window.clear();
+			_ObjectManager.Add("Paddle2", player2);
+			_ObjectManager.DrawAll(_window);
+
+			_window.display();
+			break;
+		}
+	}
+}
+void Game::GameUpdate(float deltaTime)
+{
+	switch (_gameState) {
+		case Game::Playing:
+		{
+			_ObjectManager.UpdateAll(deltaTime);
+			break;
+		}
+		case Game::Playing2:
+		{
+			_ObjectManager.UpdateAll(deltaTime);
+			break;
+		}
+	}
+	
+}
 
 //////test if exiting or playing/////
 bool Game::IsExiting(){
@@ -70,12 +127,16 @@ sf::RenderWindow& Game::GetWindow()
 
 
 /////////Define Gameloop///////////////
-void Game::GameLoop(){
+//sf::Clock mainclock;
+void Game::GameLoop()
+{
 	sf::Event event;
 
-	while (_window.pollEvent(event)) {
+	while (_window.pollEvent(event)) 
+	{
 
-		switch (_gameState) {
+		switch (_gameState) 
+		{
 			case Game::StartScreen:
 			{
 				ShowStartScreen();
@@ -91,65 +152,46 @@ void Game::GameLoop(){
 				ShowPlayMenu();
 				break;
 			}
-			case Game::Playing: 
+			case Game::Playing:
 			{
-				/*sf::CircleShape circle;
-				float radius = 100.0;
-				circle.setRadius(radius);
-				circle.setFillColor(sf::Color(0, 255, 0));
-				circle.setPosition(640, 360);
-				circle.setOrigin(radius, radius);
-				auto position = sf::Mouse::getPosition(_window);
-				circle.setPosition(sf::Vector2f(position.x, position.y));
-				*/
-				_window.clear();
-				_ObjectManager.Remove("Paddle2");
-				_ObjectManager.UpdateAll();
-				_ObjectManager.DrawAll(_window);
-				//_window.draw(circle);
-				_window.display();
 
-					if(event.type == sf::Event::Closed)
-					{
-						_gameState = Game::Exiting;
-					}
-					if (event.type == sf::Event::KeyPressed)
-					{
-						if(event.key.code == sf::Keyboard::Escape)
-						{
-							ShowMenu();
-						}
-					}
-				break;
-			}
-			case Game::Playing2:
-			{	
-				PaddlePlayer2* player2 = new PaddlePlayer2();
-				player2->SetPosition((SCREEN_WIDTH - OFFSET_Paddle), SCREEN_HEIGHT / 2);
-
-				_window.clear();
-				_ObjectManager.Add("Paddle2", player2);
-				_ObjectManager.UpdateAll();
-				_ObjectManager.DrawAll(_window);
-				_window.display();
+				
 
 				if (event.type == sf::Event::Closed)
 				{
-					_gameState = Game::Exiting;
+				_gameState = Game::Exiting;
 				}
 				if (event.type == sf::Event::KeyPressed)
 				{
 					if (event.key.code == sf::Keyboard::Escape)
 					{
-						ShowMenu();
+					ShowMenu();
 					}
 				}
 				break;
 			}
+			case Game::Playing2:
+			{
+
+				if (event.type == sf::Event::Closed)
+				{
+					_gameState = Game::Exiting;
+				}
+			if (event.type == sf::Event::KeyPressed)
+			{
+				if (event.key.code == sf::Keyboard::Escape)
+				{
+					ShowMenu();
+				}
+			}
+			break;
+			}
 
 		}
+	
 	}
 }
+	
 /////////////////start screen////////////////
 void Game::ShowStartScreen()
 {

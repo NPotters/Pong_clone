@@ -63,16 +63,20 @@ void ObjectManager::DrawAll(sf::RenderWindow& window)
 	}
 }
 
-void ObjectManager::UpdateAll()
+void ObjectManager::UpdateAll(float time)
 {	// loop over all the elements in the map container
 	// while the end of the container is not reached, call the VisibleGameObject Update method
 	// Updates all the availble items every frame and returns the frametime.
 	std::map<std::string, VisibleGameObject*>::const_iterator it = _gameObjects.begin();
-	float DeltaT = clock.restart().asSeconds();
+	//float currentTime = clock.restart().asSeconds();
+	//float fps = 1.0f / (currentTime);
+	//std::cout << "fps" << fps << std::endl;
+	//time = clock.restart().asSeconds();
 
 	while (it != _gameObjects.end())
 	{
-		it->second->Update(DeltaT);
+		it->second->Update(time);
 		it++;
 	}
 }
+
