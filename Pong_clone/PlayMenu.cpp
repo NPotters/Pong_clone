@@ -59,7 +59,7 @@ PlayMenu::PlayMenuOptions PlayMenu::Handleclick(int x, int y)
 PlayMenu::PlayMenuOptions PlayMenu::GetMenuResponse(sf::RenderWindow& window)
 {
     sf::Event MenuEvent;
-    while (1 != 2)//to freeze the menu when pressed esc.until mouseclick happened
+    while (true)//to freeze the menu when pressed esc.until mouseclick happened
     {
         while (window.pollEvent(MenuEvent))
         {

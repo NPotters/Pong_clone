@@ -8,3 +8,19 @@ public:
 	GameBackground();
 	virtual ~GameBackground();
 };
+
+/*class PinkGlow :
+	public VisibleGameObject
+{
+public:
+	PinkGlow();
+	virtual ~PinkGlow();
+};
+
+class BlueGlow :
+	public VisibleGameObject
+{
+public:
+	BlueGlow();
+	virtual ~BlueGlow();
+};*/

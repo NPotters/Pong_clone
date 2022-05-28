@@ -1,5 +1,7 @@
 #include "Ball.h"
-Ball::Ball() : _velocity(230.0f), _elapsedTimeSinceStart(0.0f)
+#include "Score.h"
+
+Ball::Ball() : _velocity(230.0f)
 {
 	Load("./Files/Ball_Start.png");
 	assert(IsLoaded());
@@ -9,14 +11,23 @@ Ball::Ball() : _velocity(230.0f), _elapsedTimeSinceStart(0.0f)
 	// random number between 1 and 360
 	float random_float = (float)(std::rand() % 360 + 1);
 	_angle = random_float;
+	_elapsedTimeSinceStart = 0.0f;
 }
 Ball::~Ball()
 {
 
 }
+void Ball::Draw(sf::RenderWindow& rw)
+{
+	VisibleGameObject::Draw(rw);
+}
 
 void Ball::Update(float elapsedTime)
 {
+	//int tempn = _n;
+	//int tempp = _p;
+	//Score count;
+	//count.ScoreCount(_n, _p);
 	_elapsedTimeSinceStart += elapsedTime;
 
 	// Delay Game from starting imediatly
@@ -27,7 +38,7 @@ void Ball::Update(float elapsedTime)
 	
 	float Displacement = _velocity * elapsedTime;
 
-
+	///////////////std::cout << Displacement << std::endl;//////////////////////////////////////////////
 	float DisplacementX = LinearVelocityX(_angle) * Displacement;
 	float DisplacementY = LinearVelocityY(_angle) * Displacement;
 
@@ -39,7 +50,7 @@ void Ball::Update(float elapsedTime)
 		_angle = 180.0f - _angle;
 		// assure that the ball does not get stuck.
 		//if (_angle > 260.0f && _angle < 280.0f) _angle += 20.0f;
-		if (_angle > 80.0f && _angle < 100.0f) _angle += 20.0f;
+		if (_angle > 80.0f && _angle < 100.0f) _angle += 40.0f;
 		// Bounce Direction
 		DisplacementY = -DisplacementY;
 	}
@@ -47,18 +58,24 @@ void Ball::Update(float elapsedTime)
 	////////Bounce wall x
 	if (GetPosition().x + DisplacementX >=  Game::SCREEN_WIDTH - Game::BORDER_OFFSET - (GetWidth() / 2))
 	{
+		//count.ScoreCount(_n, _p);
+		
+		Load("./Files/Ball_Start.png");
 		_angle = 360 - _angle;
 		DisplacementX = -DisplacementX;
+		_n++;
 	}
 	///Ball out of bounds
 	if (GetPosition().x + DisplacementX <= Game::BORDER_OFFSET + (GetWidth() / 2))
 	{
+		//count.ScoreCount(_n, _p);
+		Load("./Files/Ball_Start.png");
 		//move ball to midlle
 		GetSprite().setPosition((Game::SCREEN_WIDTH / 2), (Game::SCREEN_HEIGHT / 2));
 		_angle = (float)((rand()%360)+1);
 		_velocity = 230.0f;
 		_elapsedTimeSinceStart = 0.0f;
-		
+		_p++;
 	}
 
 	////Interaction PlayerPaddle1
@@ -71,7 +88,8 @@ void Ball::Update(float elapsedTime)
 		sf::Rect<float> p1Bound = player1->GetBoundingRect();
 		//check intersection of two rectangles
 		if (p1Bound.intersects(GetBoundingRect()))
-		{
+		{	
+			Load("./Files/Ball_Blue.png");
 			_angle = 180.0f - (_angle - 180.0f);
 			if (_angle > 360.0f) _angle -= 360.0f;
 
@@ -96,7 +114,7 @@ void Ball::Update(float elapsedTime)
 				if (_angle > 360.0f) _angle -= 360.0f;
 			}
 			//add Velocity inficted by paddle
-			_velocity += 50.0f;
+			_velocity += 100.0f;
 		}
 		
 	}
@@ -113,6 +131,7 @@ void Ball::Update(float elapsedTime)
 		//check intersection of two rectangles
 		if (p2Bound.intersects(GetBoundingRect()))
 		{
+			Load("./Files/Ball_Pink.png");
 			_angle = 180.0f - (_angle - 180.0f);
 			if (_angle > 360.0f) _angle -= 360.0f;
 
@@ -137,7 +156,7 @@ void Ball::Update(float elapsedTime)
 				if (_angle > 360.0f) _angle -= 360.0f;
 			}
 			//add Velocity inficted by paddle
-			_velocity += 50.0f;
+			_velocity += 100.0f;
 		}
 
 	}

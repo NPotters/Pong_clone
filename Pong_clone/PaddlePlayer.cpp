@@ -31,12 +31,12 @@ void PaddlePlayer::Update(float elapsedTime)
 {// define the speed and direction of the paddle
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		_velocity+= 3.0f;//pixels per second
+		_velocity+= 30.0f;//pixels per second
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		_velocity-= 3.0f;
+		_velocity-= 30.0f;
 	
 	}
 	//create a "break" for our speeding paddle

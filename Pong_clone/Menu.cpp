@@ -8,7 +8,6 @@ Menu::MenuOptions Menu::Show(sf::RenderWindow& window)
     sf::Sprite spritewindow(image);
     //sf::RectangleShape line(sf::Vector2f(1451, 280));
     //line.setPosition(241, 165);
-
     //Setup menu items
     //Play menu button
     MenuItem PlayButton;
@@ -17,6 +16,7 @@ Menu::MenuOptions Menu::Show(sf::RenderWindow& window)
     PlayButton.rect.width = 1451;
     PlayButton.rect.height = 280;
     PlayButton.action = Play;
+   // PlayButton.load = LoadPlay;
 
     //Exit Menu button
     MenuItem ExitButton;
@@ -25,10 +25,13 @@ Menu::MenuOptions Menu::Show(sf::RenderWindow& window)
     ExitButton.rect.width = 1451;
     ExitButton.rect.height = 280;
     ExitButton.action = Exit;
+   // ExitButton.load = LoadExit;
 
     //add to menu item list
     _menuItems.push_back(PlayButton);
     _menuItems.push_back(ExitButton);
+
+    //PinkGlow* glowpink = new PinkGlow();
 
     
     window.draw(spritewindow);
@@ -53,10 +56,29 @@ Menu::MenuOptions Menu::Handleclick(int x, int y)
     return Nothing;
 }
 
+// buttons react top click or return nothing
+/*Menu::MenuOptions Menu::HandleHover(int x, int y)
+{
+    std::list<MenuItem>::iterator it;
+    for (it = _menuItems.begin(); it != _menuItems.end(); it++)
+    {
+        sf::Rect<int> menuItemRect = (*it).rect;//point to menuitem from list
+        if (menuItemRect.top < y
+            && (menuItemRect.height + menuItemRect.top) > y
+            && menuItemRect.left < x
+            && (menuItemRect.width + menuItemRect.left) > x)
+        {
+            return (*it).load;
+        }
+    }
+    return Nothing;
+}*/
+
 // response of menu
 Menu::MenuOptions Menu::GetMenuResponse(sf::RenderWindow& window)
 {
     sf::Event MenuEvent;
+
     while (true)//to freeze the menu when pressed esc.until mouseclick happened
     {
         while (window.pollEvent(MenuEvent))
@@ -71,35 +93,19 @@ Menu::MenuOptions Menu::GetMenuResponse(sf::RenderWindow& window)
             }
         }
     }
+   
 }
-
-
-
-
-/*void Menu::Show(sf::RenderWindow& renderWindow)
+/*
+Menu::MenuOptions Menu::GetMenuHover(sf::RenderWindow& window)
 {
-    sf::Texture image;
-    if (image.loadFromFile("C:/Users/nicky/source/repos/Pong_clone/Pong_clone/Files/Menu.png") != true)
+    sf::Event MenuHover;
+    while (window.pollEvent(MenuHover))
     {
-        return;
-    }
-
-    sf::Sprite spritewindow(image);
-
-    renderWindow.draw(spritewindow);
-    renderWindow.display();
-
-    sf::Event event;
-    while (true)
-    {
-        while (renderWindow.pollEvent(event))
+        if (MenuHover.type == sf::Event::MouseMoved)
         {
-            if (event.type == sf::Event::EventType::KeyPressed
-                || event.type == sf::Event::EventType::MouseButtonPressed
-                || event.type == sf::Event::EventType::Closed)
-            {
-                return;
-            }
+            return HandleHover(MenuHover.mouseMove.x, MenuHover.mouseMove.y);
         }
     }
 }*/
+
+

@@ -152,10 +152,13 @@
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="PaddlePlayer.cpp" />
     <ClCompile Include="PaddlePlayer2.cpp" />
+    <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="PlayMenu.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Startscreen.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="VisibleGameObjects.cpp" />
+    <ClCompile Include="Winscreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
@@ -165,10 +168,13 @@
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="PaddlePlayer.h" />
     <ClInclude Include="PaddlePlayer2.h" />
+    <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="PlayMenu.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Startscreen.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="VisibleGameObjects.h" />
+    <ClInclude Include="Winscreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

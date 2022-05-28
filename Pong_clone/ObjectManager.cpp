@@ -14,10 +14,16 @@ ObjectManager::~ObjectManager()
 }
 
 void ObjectManager::Add(std::string name, VisibleGameObject* gameObject)
-{
-	//use map::insert to add one pair, containing the name and the  VisibleGameObject pointer (the gameobject)
-	_gameObjects.insert(std::pair<std::string, VisibleGameObject*>(name, gameObject));
+{	 // search/iterate over the elements within a map to find a key with the defined name 
+	std::map<std::string, VisibleGameObject*>::iterator _results = _gameObjects.find(name);
+	// if that name is not in the map container whern reachin the end of the iteration
+	// in other words if the map doers not contain the key, then add.
+	if (_results == _gameObjects.end()) {
+		//use map::insert to add one pair, containing the name and the  VisibleGameObject pointer (the gameobject)
+		_gameObjects.insert(std::pair<std::string, VisibleGameObject*>(name, gameObject));
+	}
 }
+
 
 void ObjectManager::Remove(std::string name)
 { // search/iterate over the elements within a map to find a key with the defined name 
