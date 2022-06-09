@@ -8,9 +8,11 @@ The Textures are created and edited with Inkscape.
 
 ## Release 1.00
 
-This is the first release of the final game.
-The code from the tutoral got updated quite a bit.
-The main changes are:
+ [Release v1.00](https://github.com/Nicky-Git/Pong_clone/releases/tag/v1.00)
+
+This is the first release of the final game.  
+The code from the tutoral got updated quite a bit.  
+The main changes are:  
 - A 2 Player mode was added.
 - The 1 Player mode v. the NPC war improved.
 - A Winscreem was added.
@@ -26,24 +28,24 @@ Alsoe the biggest bug of the original tutorial concerning the updating of the el
 
 ```cpp
 while (!IsExiting()) {
-
 	GameLoop();
-
-	if (!Pause()) 
-    {
+	if (!Pause()) {
 		GameUpdate(TimePerFrame_sec);
 	}
-
-	render();
-
+    render();
 }
 ```
 The Game is tested for windows and Linux.
 ### For the use on Windows
+
+ [Release v1.00](https://github.com/Nicky-Git/Pong_clone/releases/tag/v1.00)  
+
 Download the .zip file of the release, Unpack to a dseired folder and RUN the .exe file.
 Everything should work out of the box.
 
 ### For the use on Linux
+
+ [Release v1.00](https://github.com/Nicky-Git/Pong_clone/releases/tag/v1.00)  
 
 Download the .zip file of the release, Unpack to a dseired folder and RUN the .exe file.
 In order to run the .exe file on Linux only Wine is needed.
