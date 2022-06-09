@@ -20,8 +20,8 @@ The main changes are:
 - a score counter was added.
 
 
-Alsoe the biggest bug of the original tutorial concerning the updating of the elements was resolved,
- by deviding the main loop into a game loop , a Update loop and a render loop.
+Also the biggest bug of the original tutorial concerning the updating of the elements was resolved,
+ by deviding the main loop into a game loop , an update loop and a render loop.
  Aditionally a pause game option was added including a pause menu, having a simple overview of the game controlls.
 
 ```cpp
