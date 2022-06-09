@@ -6,9 +6,7 @@ I started this project to freshen up and expand my knowledge on C++ and SFML.
 Also I updated the code for SFML 2.5.1 and VS 2019.
 The Textures are created and edited with Inkscape.
 
-## Release 1.00
-
- [Release v1.00](https://github.com/Nicky-Git/Pong_clone/releases/tag/v1.00)
+##  [Release v1.00](https://github.com/Nicky-Git/Pong_clone/releases/tag/v1.00)
 
 This is the first release of the final game.  
 The code from the tutoral got updated quite a bit.  
