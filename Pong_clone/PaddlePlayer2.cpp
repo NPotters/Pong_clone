@@ -1,5 +1,6 @@
 #include "PaddlePlayer2.h"
 #include "Game.h"
+#include "Ball.h"
 //default member initializer velocity = 0 and maxVelocity = 600.0f
 // use f after value to tell compiler it is a float not a double.
 PaddlePlayer2::PaddlePlayer2() : _velocity(0), _maxVelocity(240.0f)
@@ -29,6 +30,7 @@ float PaddlePlayer2::GetVelocity()const
 // Update is called every frame and is passed the elapesed period since the last frame of graphics was drawn.
 void PaddlePlayer2::Update(float elapsedTime)
 {// define the speed and direction of the paddle
+	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
 		_velocity += 30.0f;//pixels per second
@@ -45,7 +47,7 @@ void PaddlePlayer2::Update(float elapsedTime)
 		_velocity = 0.0f;
 
 	}
-
+	
 	if (_velocity > _maxVelocity)
 	{
 		_velocity = _maxVelocity;
@@ -58,8 +60,8 @@ void PaddlePlayer2::Update(float elapsedTime)
 	}
 	//Set Outer bounds
 	sf::Vector2f pos = this->GetPosition();
-	if (pos.y < (Game::BORDER_OFFSET + (GetSprite().getLocalBounds().height / 2))
-		|| pos.y >(Game::SCREEN_HEIGHT - Game::BORDER_OFFSET - (GetSprite().getLocalBounds().height / 2)))
+	if (pos.y <= (Game::BORDER_OFFSET + (GetSprite().getLocalBounds().height / 2))
+		|| pos.y >= (Game::SCREEN_HEIGHT - Game::BORDER_OFFSET - (GetSprite().getLocalBounds().height / 2)))
 	{
 		_velocity = -_velocity; // Bounce by current velocity in opposite direction
 		

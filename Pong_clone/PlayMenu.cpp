@@ -48,9 +48,7 @@ PlayMenu::PlayMenuOptions PlayMenu::Handleclick(int x, int y)
             && (menuItemRect.height + menuItemRect.top) > y
             && menuItemRect.left < x
             && (menuItemRect.width + menuItemRect.left) > x)
-        {
-            return (*it).action;
-        }
+        {return (*it).action;}
     }
     return Nothing;
 }

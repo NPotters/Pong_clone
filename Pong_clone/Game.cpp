@@ -4,6 +4,15 @@
 #include "PauseMenu.h"
 #include "PlayMenu.h"
 #include "Winscreen.h"
+#include "GameBackground.h"
+
+#include "PaddlePlayer.h"
+#include "PaddlePlayer3.h"
+#include "PaddlePlayer2.h"
+#include "Ball.h"
+#include "Score.h"
+
+
 //#include "VisibleGameObjects.h"
 
 const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
@@ -72,7 +81,10 @@ void Game::render()
 		case Game::ShowingMenu:
 		{
 		
+			_ObjectManager.Remove("Score");
+			_ObjectManager.Remove("ScoreN");
 			_ObjectManager.Remove("Paddle2");
+			_ObjectManager.Remove("Paddle3");
 			_ObjectManager.Remove("Paddle1");
 			_ObjectManager.Remove("Ball");
 			break;
@@ -82,6 +94,7 @@ void Game::render()
 			//// Score////////////////
 			Score* score = new Score();
 			ScoreN* scoreN = new ScoreN();
+
 			//Ball /////
 			Ball* ball = new Ball();
 			ball->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
@@ -92,14 +105,22 @@ void Game::render()
 			PaddlePlayer2* player2 = new PaddlePlayer2();
 			player2->SetPosition((SCREEN_WIDTH - OFFSET_Paddle), SCREEN_HEIGHT / 2);
 
+			//Paddle AI////
+			PaddlePlayer3* player3 = new PaddlePlayer3();
+			player3->SetPosition((SCREEN_WIDTH - OFFSET_Paddle), SCREEN_HEIGHT / 2);
+
+
 			
 
 			_ObjectManager.Add("Score", score);
 			_ObjectManager.Add("ScoreN", scoreN);
 
 			_ObjectManager.Add("Ball", ball);
+
 			_ObjectManager.Add("Paddle1", player1);
+			_ObjectManager.Add("Paddle3", player3);
 			_ObjectManager.Add("Paddle2", player2);
+			
 			
 			
 			break;
@@ -114,7 +135,7 @@ void Game::render()
 		}
 		case Game::Playing2:
 		{
-
+			_ObjectManager.Remove("Paddle3");
 			_window.clear();
 			_ObjectManager.DrawAll(_window);
 			_window.display();
@@ -361,7 +382,15 @@ void Game::ShowPauseMenu()
 	switch (Pauseoption)
 	{
 	case PauseMenu::Return:
-		_gameState = Game::Playing;
+		if (Game::GetGameObjectManager().Get("Paddle2") != NULL)
+		{
+			_gameState = Game::Playing2;
+		}
+		//if (Game::GetGameObjectManager().Get("AIPaddle") != NULL)
+		else
+		{
+			_gameState = Game::Playing;
+		}
 		break;
 	case PauseMenu::Nothing:
 		ShowPauseMenu();

@@ -175,6 +175,69 @@
        y2="358.15781"
        gradientUnits="userSpaceOnUse"
        gradientTransform="translate(-420.43845,656.58688)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8742"
+       id="linearGradient21322"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-602.42491,1114.3714)"
+       x1="6193.9761"
+       y1="334.45267"
+       x2="2106.5852"
+       y2="332.75217" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter1108-9"
+       x="-0.012983368"
+       y="-0.02354584"
+       width="1.0259667"
+       height="1.0470917">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="26.385178"
+         id="feGaussianBlur1110-9" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8742"
+       id="linearGradient25873"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0035921,0,0,1.0034528,-7381.8167,-357.70754)"
+       x1="97.76313"
+       y1="1967.72"
+       x2="6904.0008"
+       y2="1967.72" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8742"
+       id="linearGradient26207"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-1570.1511,1495.7736)"
+       x1="7218.6714"
+       y1="321.74985"
+       x2="3118.5776"
+       y2="332.75217" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8742"
+       id="linearGradient44422"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(745.41284,1483.5156)"
+       x1="4923.6929"
+       y1="349.27264"
+       x2="813.01355"
+       y2="320.04935" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8742"
+       id="linearGradient108662"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0035921,0,0,1.0034528,-7381.8167,-357.70754)"
+       x1="97.76313"
+       y1="1967.72"
+       x2="6904.0008"
+       y2="1967.72" />
   </defs>
   <sodipodi:namedview
      id="namedview826"
@@ -186,8 +249,8 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.47233563"
-     inkscape:cx="3566.32"
-     inkscape:cy="1892.7219"
+     inkscape:cx="3718.754"
+     inkscape:cy="2062.093"
      inkscape:window-width="3840"
      inkscape:window-height="2097"
      inkscape:window-x="-8"
@@ -214,6 +277,22 @@
        x="-7269.8081"
        y="-258.78018"
        transform="matrix(-0.81292371,0,0,0.78684123,381.62223,810.27358)" />
+    <rect
+       style="mix-blend-mode:normal;fill:#0000ff;fill-opacity:0;stroke:url(#linearGradient25873);stroke-width:50.0002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter1108-9)"
+       id="rect55444-4-1-1"
+       width="6802.8979"
+       height="3751.1733"
+       x="-7269.8081"
+       y="-258.78018"
+       transform="matrix(-0.60451321,0,0,0.47451434,1269.1298,1406.0449)" />
+    <rect
+       style="mix-blend-mode:normal;fill:#0000ff;fill-opacity:0;stroke:url(#linearGradient108662);stroke-width:22.40545034;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect55444-4-1-1-7"
+       width="6802.8979"
+       height="3751.1733"
+       x="-7269.8081"
+       y="-258.78018"
+       transform="matrix(-0.60451321,0,0,0.47451434,1269.1298,1406.0449)" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:400px;line-height:1.25;font-family:'Learning Curve';-inkscape-font-specification:'Learning Curve Bold';fill:url(#linearGradient48366);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
@@ -247,5 +326,74 @@
          x="2815.1509"
          y="1112.3038"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Learning Curve';-inkscape-font-specification:'Learning Curve Bold';fill:url(#linearGradient48366-6);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none">Pause Menu</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:333.333px;line-height:1.25;font-family:'Learning Curve';-inkscape-font-specification:'Learning Curve Bold';fill:url(#linearGradient21322);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       x="2633.1643"
+       y="1570.0886"
+       id="text43550-6-5"><tspan
+         sodipodi:role="line"
+         id="tspan43548-8-9"
+         x="2633.1643"
+         y="1570.0886"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:333.333px;font-family:'Galaxy 1 Condensed';-inkscape-font-specification:'Galaxy 1 Condensed,  Bold';fill:url(#linearGradient21322);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none">Controls</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:400px;line-height:1.25;font-family:'Learning Curve';-inkscape-font-specification:'Learning Curve Bold';fill:url(#linearGradient26207);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       x="1665.4384"
+       y="1951.4907"
+       id="text43550-6-5-3"><tspan
+         sodipodi:role="line"
+         id="tspan43548-8-9-4"
+         x="1665.4384"
+         y="1951.4907"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Learning Curve';-inkscape-font-specification:'Learning Curve Bold';fill:url(#linearGradient26207);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:240px;font-family:'Galaxy 1 Condensed';-inkscape-font-specification:'Galaxy 1 Condensed,  Condensed';fill:url(#linearGradient26207)"
+           id="tspan83299">   Player 1</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="1665.4384"
+         y="2451.4907"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:240px;font-family:'Galaxy 1 Condensed';-inkscape-font-specification:'Galaxy 1 Condensed,  Condensed';fill:url(#linearGradient26207);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan33151">• Move: W, S</tspan><tspan
+         sodipodi:role="line"
+         x="1665.4384"
+         y="2951.4907"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:240px;font-family:'Galaxy 1 Condensed';-inkscape-font-specification:'Galaxy 1 Condensed,  Condensed';fill:url(#linearGradient26207);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan40395">• Break: A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:400px;line-height:1.25;font-family:'Learning Curve';-inkscape-font-specification:'Learning Curve Bold';fill:url(#linearGradient44422);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+       x="3981.002"
+       y="1939.2324"
+       id="text43550-6-5-3-9"><tspan
+         sodipodi:role="line"
+         id="tspan43548-8-9-4-3"
+         x="3981.002"
+         y="1939.2324"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Learning Curve';-inkscape-font-specification:'Learning Curve Bold';fill:url(#linearGradient44422);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:240px;font-family:'Galaxy 1 Condensed';-inkscape-font-specification:'Galaxy 1 Condensed,  Bold';fill:url(#linearGradient44422)"
+           id="tspan68981"> Player 2</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="3981.002"
+         y="2439.2324"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:240px;font-family:'Galaxy 1 Condensed';-inkscape-font-specification:'Galaxy 1 Condensed,  Bold';fill:url(#linearGradient44422);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan33151-2">• Move: ↑ ↓</tspan><tspan
+         sodipodi:role="line"
+         x="3981.002"
+         y="2939.2324"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:240px;font-family:'Galaxy 1 Condensed';-inkscape-font-specification:'Galaxy 1 Condensed,  Bold';fill:url(#linearGradient44422);fill-opacity:1;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan40395-7">• Break: →</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:400px;line-height:1.25;font-family:'Galaxy 1 Condensed';-inkscape-font-specification:'Galaxy 1 Condensed, '"
+       x="2405.0696"
+       y="1975.2903"
+       id="text1875"
+       transform="translate(82.568406,590.68167)"><tspan
+         sodipodi:role="line"
+         id="tspan1873"
+         x="2405.0696"
+         y="1975.2903"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Learning Curve';-inkscape-font-specification:'Learning Curve Bold'" /></text>
   </g>
 </svg>

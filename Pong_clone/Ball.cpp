@@ -1,5 +1,10 @@
 #include "Ball.h"
 #include "Score.h"
+#include "Game.h"
+#include "PaddlePlayer.h"
+#include "PaddlePlayer2.h"
+#include "PaddlePlayer3.h"
+
 
 Ball::Ball() : _velocity(230.0f)
 {
@@ -9,7 +14,16 @@ Ball::Ball() : _velocity(230.0f)
 	/* initialize random seed: */
 	//srand(time(NULL));
 	// random number between 1 and 360
-	float random_float = (float)(std::rand() % 360 + 1);
+	// float random_float = 178.f;
+	float random_float = (float)(std::rand() % (330 + 1 - 30) + 30);
+	if ( random_float > 150.0f && random_float <= 180.f)
+	{
+		random_float =(float)(std::rand() % (150 + 1 - 30) + 30);
+	}
+	if (random_float > 180.0f && random_float < 210.0f)
+	{
+		random_float = (float)(std::rand() % (330 + 1 - 210) + 210);
+	}
 	_angle = random_float;
 	_elapsedTimeSinceStart = 0.0f;
 }
@@ -24,8 +38,6 @@ void Ball::Draw(sf::RenderWindow& rw)
 
 void Ball::Update(float elapsedTime)
 {
-	//int tempn = _n;
-	//int tempp = _p;
 	//Score count;
 	//count.ScoreCount(_n, _p);
 	_elapsedTimeSinceStart += elapsedTime;
@@ -38,7 +50,7 @@ void Ball::Update(float elapsedTime)
 	
 	float Displacement = _velocity * elapsedTime;
 
-	///////////////std::cout << Displacement << std::endl;//////////////////////////////////////////////
+	//std::cout << Displacement << std::endl;
 	float DisplacementX = LinearVelocityX(_angle) * Displacement;
 	float DisplacementY = LinearVelocityY(_angle) * Displacement;
 
@@ -49,30 +61,56 @@ void Ball::Update(float elapsedTime)
 		//Bounce angle
 		_angle = 180.0f - _angle;
 		// assure that the ball does not get stuck.
-		//if (_angle > 260.0f && _angle < 280.0f) _angle += 20.0f;
-		if (_angle > 80.0f && _angle < 100.0f) _angle += 40.0f;
+		//if (_angle > 250.0f && _angle < 290.0f) _angle += 30.0f;
+		if (_angle > 160.0f && _angle < 180.0f) _angle -= 20.0f;
+		if (_angle > 180.0f && _angle < 200.0f) _angle += 20.0f;
+		if (_angle > -20.0f && _angle < 0.0f) _angle -= 20.0f;
+		if (_angle > 0.0f && _angle < 20.0f) _angle += 20.0f;
+		//if (_angle > 180.0f && _angle < 200.0f) _angle += 20.0f;
 		// Bounce Direction
 		DisplacementY = -DisplacementY;
 	}
 
-	////////Bounce wall x
+	///Ball out of bounds player 2
 	if (GetPosition().x + DisplacementX >=  Game::SCREEN_WIDTH - Game::BORDER_OFFSET - (GetWidth() / 2))
 	{
 		//count.ScoreCount(_n, _p);
 		
 		Load("./Files/Ball_Start.png");
-		_angle = 360 - _angle;
-		DisplacementX = -DisplacementX;
+		GetSprite().setPosition((Game::SCREEN_WIDTH / 2), (Game::SCREEN_HEIGHT / 2));
+		float random_float = (float)(std::rand() % (330 + 1 - 30) + 30);
+		if (random_float > 150.0f && random_float <= 180.f)
+		{
+			random_float = (float)(std::rand() % (150 + 1 - 30) + 30);
+		}
+		if (random_float > 180.0f && random_float < 210.0f)
+		{
+			random_float = (float)(std::rand() % (330 + 1 - 210) + 210);
+		}
+		_angle = random_float;
+		_velocity = 230.0f;
+		_elapsedTimeSinceStart = 0.0f;
+		//_angle = 360 - _angle;
+		//DisplacementX = -DisplacementX;
 		_n++;
 	}
-	///Ball out of bounds
+	///Ball out of bounds player 1
 	if (GetPosition().x + DisplacementX <= Game::BORDER_OFFSET + (GetWidth() / 2))
 	{
 		//count.ScoreCount(_n, _p);
 		Load("./Files/Ball_Start.png");
 		//move ball to midlle
 		GetSprite().setPosition((Game::SCREEN_WIDTH / 2), (Game::SCREEN_HEIGHT / 2));
-		_angle = (float)((rand()%360)+1);
+		float random_float = (float)(std::rand() % (330 + 1 - 30) + 30);
+		if (random_float > 150.0f && random_float <= 180.f)
+		{
+			random_float = (float)(std::rand() % (150 + 1 - 30) + 30);
+		}
+		if (random_float > 180.0f && random_float < 210.0f)
+		{
+			random_float = (float)(std::rand() % (330 + 1 - 210) + 210);
+		}
+		_angle = random_float;
 		_velocity = 230.0f;
 		_elapsedTimeSinceStart = 0.0f;
 		_p++;
@@ -160,13 +198,54 @@ void Ball::Update(float elapsedTime)
 		}
 
 	}
+
+	////Interaction AIPaddle
+	// use dynamic cast to return a pointer to our game PlayerPaddle object
+	//We call Get() on our GameObjectManager looking for a VisibleGameObject named “Paddle2”. 
+	//If dynamic_cast<> not able to cast, it will return NULL
+	PaddlePlayer3* AIplayer = dynamic_cast<PaddlePlayer3*>(Game::GetGameObjectManager().Get("Paddle3"));
+	if (AIplayer != NULL)
+	{
+		sf::Rect<float> AIpBound = AIplayer->GetBoundingRect();
+		//check intersection of two rectangles
+		if (AIpBound.intersects(GetBoundingRect()))
+		{
+			Load("./Files/Ball_Pink.png");
+			_angle = 180.0f - (_angle - 180.0f);
+			if (_angle > 360.0f) _angle -= 360.0f;
+
+			DisplacementX = -DisplacementX;
+
+			///Make sure ball is not inside paddle
+			if ((GetBoundingRect().left + GetBoundingRect().width) < (AIplayer->GetBoundingRect().left))
+			{
+				SetPosition(AIplayer->GetBoundingRect().left - (GetWidth() / 2) - 1.0f, GetPosition().y);
+			}
+			//Add angle when paddle hits ball
+			float VelocityAIPaddle = AIplayer->GetVelocity();
+			if (VelocityAIPaddle > 0)
+			{
+				//moving up
+				_angle -= 10.0f; // add angle due to movement
+				if (_angle < 0) _angle = 360.0f - _angle;
+			}
+			else if (VelocityAIPaddle < 0)
+			{
+				_angle += 10.0f;
+				if (_angle > 360.0f) _angle -= 360.0f;
+			}
+			//add Velocity inficted by paddle
+			_velocity += 100.0f;
+		}
+
+	}
 	
 	GetSprite().move(DisplacementX, DisplacementY);
 
 }
 float Ball::LinearVelocityX(float angle)
 {
-	angle -= 90;
+	angle = angle - 90;
 	// ensure the value is always within the 360 range
 	if (angle < 0) angle = 360 + angle;
 	return (float)std::cos(angle * (pi / 180.0f));
@@ -174,7 +253,7 @@ float Ball::LinearVelocityX(float angle)
 }
 float Ball::LinearVelocityY(float angle)
 {
-	angle -= 90;
+	angle = angle - 90;
 	// ensure the value is always within the 360 range
 	if (angle < 0) angle = 360 + angle;
 	return (float)std::sin(angle * (pi / 180.0f));

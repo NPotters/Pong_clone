@@ -1,6 +1,5 @@
 #pragma once
 #include "stdafx.h"
-#include "Game.h"
 #include "VisibleGameObjects.h"
 
 //subclass of the public VisibleGameObject

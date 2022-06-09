@@ -1,11 +1,7 @@
 #pragma once
 #include "stdafx.h"
-#include "GameBackground.h"
-#include "PaddlePlayer.h"
-#include "PaddlePlayer2.h"
 #include "ObjectManager.h"
-#include "Ball.h"
-#include "Score.h"
+
 class Game
 {
 

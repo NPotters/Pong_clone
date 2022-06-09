@@ -60,6 +60,9 @@
     <ClCompile Include="Winscreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PaddlePlayer3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Winscreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PaddlePlayer3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

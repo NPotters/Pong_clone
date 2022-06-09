@@ -19,6 +19,6 @@ private:
 	MenuOptions GetMenuResponse(sf::RenderWindow& window);
 	//MenuOptions GetMenuHover(sf::RenderWindow& window);
 	MenuOptions Handleclick(int x, int y);
-	MenuOptions HandleHover(int x, int y);
+	//MenuOptions HandleHover(int x, int y);
 	std::list<MenuItem> _menuItems; //list of menuitems
 };

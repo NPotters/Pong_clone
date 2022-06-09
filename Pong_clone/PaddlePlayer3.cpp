@@ -1,10 +1,11 @@
-#include "PaddlePlayer.h"
+#include "PaddlePlayer3.h"
 #include "Game.h"
+#include "Ball.h"
 //default member initializer velocity = 0 and maxVelocity = 600.0f
 // use f after value to tell compiler it is a float not a double.
-PaddlePlayer::PaddlePlayer() : _velocity(0), _maxVelocity(240.0f)
+PaddlePlayer3::PaddlePlayer3() : _velocity(0), _maxVelocity(240.0f)
 {
-	Load("./Files/PaddlePlayer1.png");
+	Load("./Files/PaddlePlayer2.png");
 	//assert checks if its argument compares equal to zero.
 	//If it does, assert outputs implementation-specific diagnostic information on the standard error output and calls std::abort.
 	assert(IsLoaded());
@@ -12,32 +13,68 @@ PaddlePlayer::PaddlePlayer() : _velocity(0), _maxVelocity(240.0f)
 	GetSprite().setOrigin(GetSprite().getLocalBounds().width / 2, GetSprite().getLocalBounds().height / 2);
 }
 
-PaddlePlayer::~PaddlePlayer()
+PaddlePlayer3::~PaddlePlayer3()
 {
 
 }
 
-void PaddlePlayer::Draw(sf::RenderWindow& rw)
+void PaddlePlayer3::Draw(sf::RenderWindow& rw)
 {
 	VisibleGameObject::Draw(rw);
 }
 
-float PaddlePlayer::GetVelocity()const
+float PaddlePlayer3::GetVelocity()const
 {
 	return _velocity;
 }
 // Update is called every frame and is passed the elapesed period since the last frame of graphics was drawn.
-void PaddlePlayer::Update(float elapsedTime)
+void PaddlePlayer3::Update(float elapsedTime)
 {// define the speed and direction of the paddle
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	//-----------------------------------------------------------------//
+	 //                        Define the AI of Paddle                  //
+	//-----------------------------------------------------------------//
+	const Ball* gameball = static_cast<Ball*>
+		(Game::GetGameObjectManager().Get("Ball"));
+
+	sf::Vector2f ballPosition = gameball->GetPosition();
+	if ((GetPosition().y  < ballPosition.y)
+		&& (GetPosition().y > (Game::SCREEN_HEIGHT - Game::BORDER_OFFSET - (GetSprite().getLocalBounds().height)/2.0f) - 35.0f))
 	{
-		_velocity+= 30.0f;//pixels per second
+		_velocity = 0.0f;
+	}
+	else if ((GetPosition().y > ballPosition.y)
+		&& (GetPosition().y < (Game::BORDER_OFFSET + (GetSprite().getLocalBounds().height)/2.0f) + 35.0f))
+	{
+		_velocity = 0.0f;
+	}
+
+	else if ((GetPosition().y + (GetSprite().getLocalBounds().height) / 2.0f) < ballPosition.y)
+	{
+		_velocity += 30.0f;
+	}
+	else if ((GetPosition().y - (GetSprite().getLocalBounds().height) / 2.0f) > ballPosition.y)
+	{
+		_velocity -= 30.0f;
+	}
+
+	
+
+	else
+	{
+		_velocity = 0.0f;
+	}
+
+	//----------------------------------------------------------------//
+	
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		_velocity += 30.0f;//pixels per second
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		_velocity-= 30.0f;
-	
+		_velocity -= 30.0f;
+
 	}
 	//create a "break" for our speeding paddle
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -45,18 +82,17 @@ void PaddlePlayer::Update(float elapsedTime)
 		_velocity = 0.0f;
 
 	}
-	
 
 	if (_velocity > _maxVelocity)
 	{
 		_velocity = _maxVelocity;
-	
+
 	}
 	if (_velocity < -_maxVelocity)
 	{
 		_velocity = -_maxVelocity;
-		
-	}
+
+	}*/
 	//Set Outer bounds
 	sf::Vector2f pos = this->GetPosition();
 	if (pos.y < (Game::BORDER_OFFSET + (GetSprite().getLocalBounds().height / 2))
